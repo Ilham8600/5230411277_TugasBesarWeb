@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="login-box p-4" style="max-width: 400px; width: 100%;">
+        <h2 class="mt-4 mb-4 text-center">Login</h2>
+        <form method="POST" class="needs-validation mx-auto" novalidate>
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+                <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+
+            <!-- Optional Link -->
+            <div class="text-center mt-3">
+                <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    body {
+        background-color: #dfe6ef; 
+        background-image: url('static/images/walpaper2.jpg');
+    }
+    
+    .login-box {
+        background-color: #d7d8e6; 
+        background: rgba(255, 255, 255, 0.6); 
+        border: 1px solid rgba(200, 200, 200, 0.6);
+        border-radius: 12px; 
+        box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.2), 
+        -4px -4px 8px rgba(255, 255, 255, 0.8); 
+        padding: 20px; 
+        backdrop-filter: blur(10px); 
+        padding: 20px; 
+    }
+    
+
+</style>
+<!-- Add Bootstrap JS Validation -->
+<script>
+    (function () {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+{% endblock %}
